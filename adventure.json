@@ -1,0 +1,26 @@
+{
+    "1091563745840480348": {
+        "base": {
+            "level": 1,
+            "xp": 0,
+            "hp": 5,
+            "money": 100,
+            "stat_for_levels": 1.1
+        },
+        "inventory": {}
+    },
+    "709160342810525777": {
+        "base": {
+            "level": 2,
+            "xp": 0,
+            "hp": 5,
+            "max_hp": 1,
+            "money": 10,
+            "stat_for_levels": 0.1
+        },
+        "inventory": {},
+        "timers": {
+            "daily_heal": 0
+        }
+    }
+}
