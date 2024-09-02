@@ -138,7 +138,7 @@ async def adv(self, item: str = None):
 # async def use(self, item): #work on me when you are done with adv
 
 
-    await self.send(embed = adventure.action(user_id=self.author.id, item=item))
+    # await self.send(embed = adventure.action(user_id=self.author.id, item=item))
 
 @bot.command(name = "up", description="CHEATER! though you leveled up")
 async def up(self):
@@ -209,4 +209,4 @@ async def heal(self):
 
 
 
-bot.run('nice try buddy')
+bot.run('nice try')

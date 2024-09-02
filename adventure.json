@@ -1,26 +1,31 @@
 {
-    "1091563745840480348": {
-        "base": {
-            "level": 1,
-            "xp": 0,
-            "hp": 5,
-            "money": 100,
-            "stat_for_levels": 1.1
-        },
-        "inventory": {}
-    },
     "709160342810525777": {
         "base": {
-            "level": 2,
-            "xp": 0,
-            "hp": 5,
-            "max_hp": 1,
-            "money": 10,
-            "stat_for_levels": 0.1
+            "level": 30,
+            "xp": 65,
+            "hp": 808,
+            "max_hp": 6,
+            "money": 6850,
+            "stat_for_levels": 1.1
         },
-        "inventory": {},
+        "inventory": {
+            "sword": {
+                "damage": 10,
+                "price": 10,
+                "sell": 5,
+                "name": "sword",
+                "description": "a super basic sword that is sturdy and made by a normal black smith"
+            },
+            "trident": {
+                "damage": 28,
+                "price": 180,
+                "sell": 60,
+                "name": "trident",
+                "description": "basically a metal fork 20 times larger, yet 200 times more deadly."
+            }
+        },
         "timers": {
-            "daily_heal": 0
+            "daily_heal": 1725252186
         }
     }
 }

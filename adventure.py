@@ -98,7 +98,7 @@ def ur_stats(user_id:int):
 def change_base_stats(user_id:int, amount:int, stat:str):
     user_id = str(user_id)
     data = read_from_json()
-    data[user_id]["base"][stat] = int((1+data[user_id]["base"]["stat_for_levels"]) ** data[user_id]["base"][stat])
+    data[user_id]["base"][stat] = int(data[user_id]["base"][stat] ** (data[user_id]["base"]["stat_for_levels"]) + 1)
     write_to_json(data)
     return
 
@@ -111,6 +111,8 @@ def leveling_up(user_id:int):
 
     for stat in stat_list:
         change_base_stats(user_id=user_id, amount=5, stat = stat)
+    
+    
     return
  
 def add_item(user_id:int, item:str):
@@ -162,32 +164,40 @@ def remove_item(user_id: int, item:str):
 
 
 
-def go_adventure(user_i: int, item: str): #DONE!!! well... not rly tho
-    monsters = read_from_creature() #you can change what dificulty later also mind the S
+
+
+
+
+def go_adventure(user_i: int, item: str): 
+    monsters = read_from_creature()
     data = read_from_json()
-    monster = random.choice(list(monsters))
     user_id = str(user_i)
-    while monsters[monster]['level'] > data[user_id]["base"]["level"]:
-        monster = random.choice(list(monsters))
 
+    # Filter monsters based on player's level
+    player_level = data[user_id]["base"]["level"]
+    eligible_monsters = {name: details for name, details in monsters.items() if details['level'] <= player_level+5}
 
+    if not eligible_monsters:
+        return "No suitable monsters found for your level. Keep leveling up!"
 
+    monster_name = random.choice(list(eligible_monsters.keys()))
+    monster = eligible_monsters[monster_name]
 
-    out = discord.Embed(title=monster, description="this is your enemy's stats", color=discord.Color.blue())
-    out.add_field(name="dmg:",value=monsters[monster]["health"],inline=True)
-    out.add_field(name="hp:",value=monsters[monster]["damage"],inline=True)
-    out.add_field(name="xp:",value=monsters[monster]["xp"],inline=True)
+    out = discord.Embed(title=monster_name, description="This is your enemy's stats", color=discord.Color.blue())
+    out.add_field(name="dmg:", value=monster["damage"], inline=True)
+    out.add_field(name="hp:", value=monster["health"], inline=True)
+    out.add_field(name="xp:", value=monster["xp"], inline=True)
 
     char_hp = data[user_id]["base"]["hp"]
-    char_damage = data[user_id]["inventory"][item]["damage"] 
+    char_damage = data[user_id]["inventory"][item]["damage"]
     char_xp = data[user_id]["base"]["xp"]
-    
-    monster_hp = monsters[monster]['health']
-    monster_damage = monsters[monster]['damage']
-    monster_xp = monsters[monster]['xp']
-    monster_coins = monsters[monster]['coins']
 
-    while char_hp > 0 and monster_hp > 0: 
+    monster_hp = monster['health']
+    monster_damage = monster['damage']
+    monster_xp = monster['xp']
+    monster_coins = monster['coins']
+
+    while char_hp > 0 and monster_hp > 0:
         # Character attacks monster
         damage_dealt = random.randint(char_damage - 1, char_damage + 1)
         monster_hp -= damage_dealt
@@ -198,17 +208,20 @@ def go_adventure(user_i: int, item: str): #DONE!!! well... not rly tho
             data[user_id]["base"]["hp"] = char_hp
             data[user_id]["base"]["money"] += monster_coins
 
-            if data[user_id]["base"]["xp"] >= 20 * (data[user_id]["base"]["stat_for_levels"] ** (data[user_id]["base"]["level"]-1)): #level up system
+            # Level up system
+            xp_needed = 20 * (data[user_id]["base"]["stat_for_levels"] ** (data[user_id]["base"]["level"]-1))
+            if data[user_id]["base"]["xp"] >= xp_needed:
                 data[user_id]["base"]["level"] += 1
-                data[user_id]["base"]["xp"] -= int(20 * (data[user_id]["base"]["stat_for_levels"] ** (data[user_id]["base"]["level"]-1)))
+                data[user_id]["base"]["xp"] -= int(xp_needed)
                 lvl = data[user_id]["base"]["level"]
-                leveling_up(user_id) # change how much to increase later
+                
                 write_to_json(data)
-                if lvl%5==0:
-                    return f"You defeated a {monster} and gained {monster_xp} XP. Your total XP is now {char_xp + monster_xp}. You have {char_hp} health left. and leveled up to {lvl}. the monsters you face may grow stronger..."
-                return f"You defeated a {monster} and gained {monster_xp} XP. Your total XP is now {char_xp + monster_xp}. You have {char_hp} health left. and leveled up to {lvl}"
+                leveling_up(user_id)
+                if lvl % 5 == 0:
+                    return f"You defeated a {monster_name} and gained {monster_xp} XP. Your total XP is now {char_xp + monster_xp}. You have {char_hp} health left and leveled up to {lvl}. The monsters you face may grow stronger..."
+                return f"You defeated a {monster_name} and gained {monster_xp} XP. Your total XP is now {char_xp + monster_xp}. You have {char_hp} health left and leveled up to {lvl}."
             write_to_json(data)
-            return f"You defeated a {monster} and gained {monster_xp} XP. Your total XP is now {char_xp + monster_xp}. You have {char_hp} health left"
+            return f"You defeated a {monster_name} and gained {monster_xp} XP. Your total XP is now {char_xp + monster_xp}. You have {char_hp} health left."
         
         # Monster attacks character
         damage_received = random.randint(monster_damage - 1, monster_damage + 1)
@@ -218,9 +231,12 @@ def go_adventure(user_i: int, item: str): #DONE!!! well... not rly tho
             data[user_id]["base"]["hp"] = 0
             data[user_id]["base"]["money"] -= 10
             write_to_json(data)
-            return f"You were defeated by the monster. It was a {monster}. Luckly Steve found you while he was digging strait down, though of course, not for free, he took 10 coins... You may be at 0 health but you are still alive but unable to continue to continue adverturing, heal up to continue."
+            return f"You were defeated by the {monster_name}. Luckily, Steve found you while he was digging straight down. However, he took 10 coins as payment. You may be at 0 health, but you are still alive. Heal up to continue adventuring."
     
-    return "Battle ended unexpectedly, or you have 0 hp"
+    return "Battle ended unexpectedly, or you have 0 hp."
+
+
+
 
 # def if_dead(user_id : int):
     

@@ -1,0 +1,87 @@
+{
+    "rustydagger" : {
+        "damage": 6,
+        "price" : 12,
+        "sell" : 3,
+        "name" : "rustydagger",
+        "description" : "a dagger that seems to have been worn out over the years, still has a somewhat sharp edge to it"
+    },
+    "sword" : {
+        "damage": 10,
+        "price" : 10,
+        "sell" : 5,
+        "name" : "sword",
+        "description" : "a super basic sword that is sturdy and made by a normal black smith"
+    },
+    "bigsword" : {
+        "damage": 20,
+        "price" : 100,
+        "sell" : 20,
+        "name" : "bigsword",
+        "description" : "a super basic bigsword that is sturdy and made by a normal black smith"
+    },
+    "bettersword" : {
+        "damage": 100,
+        "price" : 30000,
+        "sell" : 30000,
+        "name" : "bettersword",
+        "description" : "a sword that is dull but looks rly good and made by an egoistic black smith"
+    },
+    "axe" : {
+        "damage": 12,
+        "price" : 40,
+        "sell" : 8,
+        "name" : "axe",
+        "description" : "just an old war-torn iron axe, nothing too special here. quite choppy when used against wood. and flesh."
+    },
+    "spear" : {
+        "damage": 8,
+        "price" : 35,
+        "sell" : 6,
+        "name" : "spear",
+        "description" : "a melee weapon, offers you longer reach distance. maybe even throwable in sticky situations."
+    },
+    "machete" : {
+        "damage": 14,
+        "price" : 70,
+        "sell" : 14,
+        "name" : "machete",
+        "description" : "mexican cartel type sht"
+    },
+    "flail" : {
+        "damage": 16,
+        "price" : 90,
+        "sell" : 16,
+        "name" : "flail",
+        "description" : "you swing it out like a rainbow. except it lands on the enemy's head, not on a pot of gold."
+    },
+    "sledge_hammer" : {
+        "damage": 20,
+        "price" : 120,
+        "sell" : 26,
+        "name" : "sledge hammer",
+        "description" : "you either deal massive damage to your target, or break your wrist trying to lift it off the ground."
+    },
+    "mace" : {
+        "damage": 24,
+        "price" : 135,
+        "sell" : 30,
+        "name" : "mace",
+        "description" : "dealing higher damage than the sledge hammer, at a cost of more broken wrists. and several broken backs."
+    },
+    "spiked_club" : {
+        "damage": 18,
+        "price" : 100,
+        "sell" : 24,
+        "name" : "spiked club",
+        "description" : "wonder if you can play baseball with these. probably would cause accidental penetration for the back catcher if you're not careful            enough."
+    },
+    "trident" : {
+        "damage": 28,
+        "price" : 180,
+        "sell" : 60,
+        "name" : "trident",
+        "description" : "basically a metal fork 20 times larger, yet 200 times more deadly."
+    }
+
+}
