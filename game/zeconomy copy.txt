@@ -1,0 +1,89 @@
+import discord
+import json # is just a "better" dictionary
+import random
+import time
+
+#TODO
+#be able to take away money, transfer money from a to b, clean up code, make the add_amount defalt to 10.
+
+def write_to_json(data_dict: dict) -> None:
+    with open("money.json", "w") as file:
+        json.dump(data_dict, file, indent = 4)
+
+def read_from_json() -> dict:
+    with open("money.json", "r") as file:
+        data = json.load(file)
+    return data
+
+def ensure_user_exists(user_id: int) -> dict:
+    user_id = str(user_id)
+    data = read_from_json()
+    if user_id not in data:
+        data[user_id] = 100
+        write_to_json(data)
+    return data
+
+
+
+def check_balance(user_id: int) -> int:
+    user_id = str(user_id)
+    data = ensure_user_exists(user_id=user_id)
+
+    return data.get(user_id)
+    
+def double(user_id: int) -> int:
+    user_id = str(user_id)
+    data = ensure_user_exists(user_id=user_id)
+    if random.randint(0, 1) == 1:
+        data[user_id] *= 2
+    else:
+        data[user_id] //= 2
+
+    write_to_json(data)
+
+    return data.get(user_id)
+
+def add_money(user_id: int, amount) -> int:
+    user_id = str(user_id)
+    data = ensure_user_exists(user_id=user_id)
+    data[user_id] += amount
+    write_to_json(data)
+    return data[user_id]
+
+def subtract_money(user_id: int, amount) -> int:
+    user_id = str(user_id)
+    data = ensure_user_exists(user_id=user_id)
+    data[user_id] -= amount
+    write_to_json(data)
+    return data[user_id]
+
+def transfer_money(user_id1: int, user_id2: int, amount: int) -> tuple:
+    if amount < 1:
+        return "no you can't do that"
+    
+    user_id1 = str(user_id1)
+    data = ensure_user_exists(user_id=user_id1)
+    user_id2 = str(user_id2)
+
+    data = ensure_user_exists(user_id=user_id2)
+    if subtract_money(user_id=user_id1, amount=amount) < 0:
+        return "you dont have enough money"
+    a = add_money(user_id=user_id2, amount=amount) 
+    b = subtract_money(user_id=user_id1, amount=amount) 
+
+    return (b, a)
+
+if __name__ == "__main__":
+    print(transfer_money(709160342810525777, 1091563745840480348, -1000))
+
+#TODO
+#be able to take away money, transfer money from a to b, clean up code, make the add_amount defalt to 10.    
+
+
+
+
+
+
+
+
+

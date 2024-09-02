@@ -1,0 +1,39 @@
+like how would you do damage? like have items do damage or have a base damage that your character would output or just have rng in your attacks.
+
+we should put all the monsters in another json like to have a monsters.json 
+
+this would be like a solo adventure where you go out to adventure in a labrinth where there are 10 floors it gets harder the more you go down.
+now how the difficulty change is the biggest problem, should we have different things we preset or have it increase difficulty like 1.25 time the difficulty.
+
+loot pool ideas and things the thing is an item will go towards a list [damage, strength requirement, rarety/drop rate]
+
+monsters
+
+
+do it like a labrinth 
+[
+    
+    "####################",
+    "####################",
+    "####################",
+    "#####       ########",
+    "########### ########",
+    "###########       ##",
+    "########### ##### ##",
+    "########### ## ## ##",
+    "########### ## ## ##",
+    "########### ##    ##",
+    "########### ########",
+    "######### B ########",
+    "########### ########",
+    "########### ########",
+    "########### ########",
+    "########       #####",
+    "########## #########",
+    "########## #########",
+    "########## #########",
+    "########## #########",
+
+
+
+]

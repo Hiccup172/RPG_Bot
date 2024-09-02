@@ -6,7 +6,7 @@
             "hp" : 5,
             "max_hp" : 5,
             "money" : 10,
-            "stat_for_levels" : 0.1
+            "stat_for_levels" : 1.1
         }
     }
 }
