@@ -1,0 +1,3 @@
+# hi i made this... 
+# it's a discord bot that is 90% done, i hope i can finish it soon, if you want this in your server use this link:
+#https://discord.com/oauth2/authorize?client_id=1080709004826787922
