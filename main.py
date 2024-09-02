@@ -209,4 +209,4 @@ async def heal(self):
 
 
 
-bot.run('MTA4MDcwOTAwNDgyNjc4NzkyMg.GlWhkt.1MECs-EHnO_yAgsjlqCDVw_fJTmFOyVV9GQLwA')
+bot.run('nice try buddy')
