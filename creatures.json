@@ -1,0 +1,78 @@
+{
+    "goblin": {
+        "health": 5,
+        "damage": 1,
+        "xp": 7,
+        "coins": 15,
+        "level":-1
+    },
+    "corrupt_goblin": {
+        "health": 2,
+        "damage": 3,
+        "xp": 12,
+        "coins": 30,
+        "level":-1
+    },
+    "vampire_bat": {
+        "health": 8,
+        "damage": 4,
+        "xp": 20,
+        "coins": 40,
+        "level":-1
+    },
+    "forest_troll": {
+        "health": 20,
+        "damage": 5,
+        "xp": 25,
+        "coins": 50,
+        "level":10
+    },
+    "shadow_assassin": {
+        "health": 15,
+        "damage": 8,
+        "xp": 40,
+        "coins": 80,
+        "level":10
+    },
+    "basic_guardian_sentry": {
+        "health": 30,
+        "damage": 7,
+        "xp": 70,
+        "coins": 190,
+        "level":20
+    },
+    "undead_knight": {
+        "health": 35,
+        "damage": 12,
+        "xp": 80,
+        "coins": 160,
+        "level":25
+    },
+    "fire_drake": {
+        "health": 50,
+        "damage": 10,
+        "xp": 100,
+        "coins": 200,
+        "level":35
+    },
+    "stone_golem": {
+        "health": 100,
+        "damage": 15,
+        "xp": 150,
+        "coins": 300,
+        "level":40
+    },
+    "dragon_king": {
+        "health": 500,
+        "damage": 25,
+        "xp": 2000,
+        "coins": 5000,
+        "level":45,
+        "special_attack": {
+            "name": "Dragon's Breath",
+            "damage": 50,
+            "description": "Unleashes a fiery breath that deals massive damage to the opponent."
+        },
+        "description": "The Dragon King is the most feared creature in the land, with a fiery breath and immense strength."
+    }
+}

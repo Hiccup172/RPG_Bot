@@ -1,0 +1,52 @@
+{
+    "sword": {
+        "name": "sword",
+        "damage": 10,
+        "price": 10,
+        "sell": 5,
+        "description": "a super basic sword that is sturdy and made by a normal black smith"
+    },
+    "greatsword": {
+        "name": "greatsword",
+        "damage": 25,
+        "price": 50,
+        "sell": 25,
+        "description": "a large and heavy sword that requires strength to wield effectively"
+    },
+    "enchanted dagger": {
+        "name": "dagger",
+        "damage": 15,
+        "price": 20,
+        "sell": 10,
+
+        "description": "a small, lightweight weapon with a high critical hit chance that doesn't exist"
+    },
+    "amulet": {
+        "name": "amulet",
+        "healing": 5,
+        "price": 40,
+        "sell": 20,
+        "description": "an accessory that provides heals once a day"
+    },
+    "hammer": {
+        "name": "hammer",
+        "damage": 30,
+        "price": 60,
+        "sell": 30,
+        "description": "a powerful hammer that deals significant damage but requires strength to use"
+    },
+    "hand_cannon": {
+        "name": "hand_cannon",
+        "damage": 50,
+        "price": 100,
+        "sell": 50,
+        "description": "a high-damage firearm that requires both strength and intelligence to use effectively"
+    },
+    "sabre": {
+        "name": "sabre",
+        "damage": 6,
+        "price": 15,
+        "sell": 7,
+        "description": "a light and agile sword that requires both strength and intelligence to use"
+    }
+}
